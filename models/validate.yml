@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: events
+    description: "Combined all features to provide the single source analyse"
+    columns:
+      - name: t_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: top_10_stores
+    description: "Top 10 stores per transacted amount"
+    columns:
+      - name: store_name
+        description: "The primary key for this table"
+        tests:
+          - unique
+      - name: total_amount
+
+  - name: top_10_sold_products
+    description: "Top 10 products sold"
+    columns:
+      - name: product_name
+        description: "The primary key for this table"
+        tests:
+          - unique
+      - name: total_count
