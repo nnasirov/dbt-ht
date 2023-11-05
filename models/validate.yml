@@ -9,6 +9,12 @@ models:
         tests:
           - unique
           - not_null
+      - name: t_device_type
+        description: "The device type"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1,2,3,4,5]
 
   - name: top_10_stores
     description: "Top 10 stores per transacted amount"
@@ -17,6 +23,7 @@ models:
         description: "The primary key for this table"
         tests:
           - unique
+          - not_null
       - name: total_amount
 
   - name: top_10_sold_products
@@ -26,4 +33,13 @@ models:
         description: "The primary key for this table"
         tests:
           - unique
+          - not_null
       - name: total_count
+
+  - name: perc_per_device
+    description: "Transaction percentage per device type"
+    columns:
+      - name: percentage_of_transactions
+        description: "Percentage of the transaction"
+        tests:
+          - not_null
